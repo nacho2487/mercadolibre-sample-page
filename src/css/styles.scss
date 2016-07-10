@@ -1,0 +1,88 @@
+@import '../../node_modules/chico/src/ui/styles/ui-theme';
+
+body{
+  margin: 0 auto;
+  width: 1100px;
+}
+h1{
+  font-size: 2.3em;
+  line-height: 1.2em;
+  letter-spacing: -1px;
+}
+
+.form{
+  margin-top: 20px;
+  .form-row{
+    label{
+      width: 60px;
+      text-align: left;
+    }
+  }
+  .form-actions{
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
+.price {
+  font-size: 2.8em;
+  letter-spacing: -1px;
+  vertical-align: top;
+  sup{
+    font-size: .5em;
+    line-height: 1.5em;
+    vertical-align: text-top;
+  }
+}
+.tabs{
+  position: relative;
+  min-height: 200px;
+  clear: both;
+  margin: 25px 0;
+  .tab {
+    float: left;
+    label {
+      background: #eee;
+      border: 1px solid #EDEDED;
+      margin-left: -1px;
+      position: relative;
+      left: 1px;
+      padding: 4px 12px;
+      color: #333;
+      border-radius: 5px 5px 0 0;
+      margin-right: 2px;
+      display: inline-block;
+      cursor: pointer;
+      &:hover{
+        background-color: #ccc;
+      }
+    }
+    [type=radio] {
+      display: none;
+      &:checked ~ label {
+        background: white;
+        border-bottom: 1px solid white;
+        z-index: 2;
+        cursor: default;
+        text-shadow: 2px 0 2px rgba(255,255,255,.5);
+        font-weight: 700;
+        &:hover{
+          cursor: default;
+          background:white;
+        }
+        ~ .content {
+          z-index: 1;
+        }
+      }
+    }
+    .content {
+      position: absolute;
+      top: 28px;
+      left: 0;
+      background: white;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      border: 1px solid #EDEDED;
+    }
+  }
+}
