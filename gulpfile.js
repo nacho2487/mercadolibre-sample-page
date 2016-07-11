@@ -15,7 +15,8 @@ var paths = {
     sass: './src/css/**/*.scss',
     libs: './src/css/**/libs/*.css',
     html: './src/*.html',
-    js: './src/js/*.js'
+    js: ['./node_modules/jquery/dist/jquery.min.js', './node_modules/tiny.js/dist/tiny.min.js', './node_modules/chico/dist/ui/chico.min.js', './src/js/*.js' ],
+    assets: './node_modules/chico/dist/assets/*'
 };
 
 gulp.task('build', ['images', 'html', 'styles', 'scripts']);
@@ -61,7 +62,7 @@ gulp.task('libs', function () {
         .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['assets'], function() {
     return gulp.src(paths.js)
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./dist/js/'))
@@ -70,4 +71,10 @@ gulp.task('scripts', function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('assets', function () {
+    return gulp
+        .src(paths.assets)
+        .pipe(gulp.dest('./dist/assets/'));
 });
